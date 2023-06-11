@@ -1,20 +1,31 @@
-function template1() {
-    var contentContainer = document.getElementById('content-container');
-    var template = document.getElementById('template1');
-    var clone = document.importNode(template.content, true);
-    contentContainer.innerHTML = '';
-    contentContainer.appendChild(clone);
-    document.getElementById('button2').addEventListener('click', template2);
+let app = document.querySelector(".app");
+let screens = ["screen1", "screen2", "screen3"];
+let currentIndex = 0;
 
+function renderScreen(app, screens) {
+
+    let screen = document.querySelector("." + screens[currentIndex]);
+    let clonedScreen = screen.content.cloneNode(true);
+    currentIndex++;
+
+    app.appendChild(clonedScreen);
 }
 
-function template2() {
-    var contentContainer = document.getElementById('content-container');
-    var template = document.getElementById('template2');
-    var clone = document.importNode(template.content, true);
-    contentContainer.innerHTML = '';
-    contentContainer.appendChild(clone);
+window.addEventListener("load", (event) => {
+    renderScreen(app, screens);
 
+    let nextScreenButton = document.getElementById("button1");
+    nextScreenButton.addEventListener("click", function () {
+        clearScreen(app);
+        renderScreen(app, screens);
+
+    });
+});
+
+function clearScreen(app) {
+    app.innerHTML = "";
 }
+
+
 
 
