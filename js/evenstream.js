@@ -44,7 +44,6 @@ function setupEventSource() {
 
     evtSource.onmessage = (e) => {
 
-        // console.log(e)
         /**
          * 'e' contains the message which is reverted to a js object
          * within the message there is a 'topic' which is 'the device'
