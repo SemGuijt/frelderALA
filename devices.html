@@ -17,6 +17,31 @@
         <img src="images/f4.png" alt="profile picture">
     </header>
 
+
+    <section class="verbruik-container">
+        <div class="verbruik-header">
+            <h3>energie verbruik</h3>
+            <p><i class="fa-solid fa-calendar-days"></i>calender</p>
+        </div>
+        <hr>
+        <div class="energie-counter">
+            <div class="counter">
+                <i class="fa-solid fa-lightbulb"></i>
+                <div class="ruimte">
+                    <p class="dag">vandaag</p>
+                    <p class="energie">16.4kwh</p>
+                </div>
+            </div>
+            <div class="counter">
+                <i class="fa-solid fa-bolt"></i>
+                <div class="ruimte">
+                    <p class="dag">deze maand</p>
+                    <p class="energie">222kwh</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- scroll animatie maken -->
     <section class="apparaten">
         <div class="catogery">
             <h4>woonkamer</h4>
@@ -30,6 +55,7 @@
             <h4>keuken</h4>
             <i class="fa-solid fa-kitchen-set"></i>
         </div>
+
         <div class="catogery">
             <h4>badkamer</h4>
             <i class="fa-solid fa-bath"></i>
@@ -38,6 +64,7 @@
             <h4>garage</h4>
             <i class="fa-solid fa-warehouse"></i>
         </div>
+
     </section>
 
     <div class="container"></div>
@@ -53,7 +80,7 @@
 
     <template class="switch-template">
         <div class="switch">
-            <button>aan </button>
+            <button id="toggle" class="toggle">oonkamer/schemerlamp</button>
         </div>
     </template>
 

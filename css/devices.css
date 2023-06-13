@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
-    font-family: "poppins";
+    font-family: var(--fontfamily);
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
@@ -11,9 +11,11 @@ body {
     background-color: var(--backgroundcolor);
     width: 100%;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 
+/* header profiel foto */
 header {
     display: flex;
     justify-content: space-between;
@@ -21,19 +23,75 @@ header {
     margin: 10vh auto;
 }
 
-.apparaten {
+/* verbruik kaart */
+.verbruik-container {
+    background-color: #f4f5f1;
+    height: 30vh;
+    width: 80vw;
+    margin: 10vh auto
+}
+
+.verbruik-header {
     display: flex;
     justify-content: space-between;
+    width: 70vw;
+    margin: 0 auto;
+    color: #697544;
+    padding-top: 3vh;
+}
+
+hr {
+    border: 3pxsolid black;
+    width: 90%;
+    margin: 5vh auto;
+}
+
+
+.energie-counter {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+}
+
+.energie-counter i {
+    color: rgb(221, 161, 94);
+    font-size: 1.5em;
+
+}
+
+.counter {
+    display: flex;
+}
+
+.ruimte {
+    padding-left: 1vw;
+}
+
+.dag {
+    color: #8B8C89;
+    font-weight: bold;
+}
+
+.energie {
+    color: #606C38;
+    font-weight: 800;
+    font-size: 1.5em;
+}
+
+/* sectie van plekken waar apparaten zijn */
+.apparaten {
+    display: flex;
+    justify-content: space-around;
     margin: 0 10vh;
     min-height: 40vh;
     flex-wrap: wrap;
     gap: 1rem;
 
-
 }
 
 .catogery {
-    background-color: #90986e;
+    background-color: #dad8c9;
     width: 200px;
     height: 200px;
     display: grid;
@@ -41,8 +99,14 @@ header {
     border-radius: 2%;
 }
 
-i {
+.catogery i {
     font-size: 3rem;
+    color: #90986e;
+}
+
+.catogery:hover {
+    background-color: #90986e;
+
 }
 
 .card {
@@ -52,21 +116,31 @@ i {
     display: flex;
 }
 
+/* grid van de appraten */
 .container {
     display: grid;
-    max-width: 80vw;
-    margin: 0 auto;
+    margin: 10vh auto;
     gap: 2rem;
-    margin-top: 10vh;
-
+    grid-template-columns: repeat(3, 1fr);
+    width: 80vw;
 }
 
-@media (min-width: 600px) {
+/* telefoon responsive */
+@media (max-width: 600px) {
     .container {
         grid-template-columns: repeat(2, 1fr);
     }
-}
 
+    .apparaten {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .catogery {
+        width: 80%;
+    }
+}
 
 @media (min-width: 900px) {
     .container {
