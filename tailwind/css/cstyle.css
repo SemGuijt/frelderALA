@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    height: 14vh;
+    padding: 20px;
+}
+
+.dstekst {
+   
+    height: 20%;
+    display: flex;
+    align-items: center;
+}
+.dstekst h1{
+    color:#606C38 ;
+}
+.dstekst i {
+   
+    color: #8B8C89;
+}
+
+.datum {
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75rem;
+}
+
+.line {
+    color: #707070;
+    padding: 13px;
+}
+
+.energie {
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#bulb {
+    color:#dda15e;
+    height: 100px;
+}
+
+.vandaagenergie{
+    display: flex;
+    flex-direction: column;
+}
+
+.kwh {
+   color: #606C38;
+   font-weight: 900
+}
+
+.dag {
+    color:#8B8C89;
+    font-weight: 800;
+}
+.tekstinfo{
+    align-items: center;
+    height: 50%;
+    flex-direction: row;
+}
+.meerinfo {
+color: #dda15e;
+display: flex;
+flex-direction: row;
+cursor: pointer;
+}
+
+
+
+  
+  .menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #CACABF;
+    transition: background-color 0.2s ease;
+  }
+  
+  .menu-item.active {
+ background-color: #90986E;
+  }
+  
+  
+  
+  .menu-item.active .boxicon {
+    color: white; /* Color for active it#90986Eem */
+  }
+  
+  .boxicon {
+    color: #90986E; /* Color for inactive items */
+    }
+  
+  .menu-item.active .boxicon {
+    color: white; /* Color for active item */
+  }
+
+
+.card1 {
+  background-image: url('/images/Group\ 2.png');
+  background-repeat: no-repeat;
+  background-position: 10vw 0;
+  background-size: 15vh;
+}
+
+.card2 {
+  background-image: url('/images/Mask\ Group\ 2.png');
+  background-repeat: no-repeat;
+  background-position: -1vw 5vh;
+  background-size: 15vh;
+}
+
+.card3 {
+  background-image: url('/images/Group\ 3.png');
+  background-repeat: no-repeat;
+  background-position: 6vw 2vh;
+  background-size: 15vh;
+}
+
+.card4 {
+  background-image: url('/images/Mask\ Group\ 4.png');
+  background-repeat: no-repeat;
+  background-position: 8vw 20vh;
+  background-size: 15vh;
+}
