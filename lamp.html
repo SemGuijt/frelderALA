@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>devices</title>
+    <link rel="stylesheet" href="css/devices.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/01addce9f6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/lamp.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/roundSlider/1.3.2/roundslider.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/roundSlider/1.3.2/roundslider.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="#"><img src="images/goback.PNG"></a>
+        <h3 class="plaats">Lamp Woonkamer</h3>
+        <img src="images/f4.png" alt="profile picture">
+    </header>
+
+
+    <section class="verbruik-container">
+        <article class="verbruik-header"> 
+            <h1>Smart lamp</h1>
+            <article class="toggle">
+            <button id="turn-on" value="woonkamer/schemerlamp" class="control-button">Aan</button>
+            <h1 padding="yes">/</h1>
+            <button id="turn-off" value="woonkamer/schemerlamp" class="control-button">Uit</button>
+            </article>
+        </article>
+        <article class="energie-counter">
+            <article class="counter">
+                <article class="ruimte">
+                    <p class="dag"></p>
+                    <p class="energie"> 
+                    </article>
+                </article>
+            <article class="counter">
+                <article class="ruimte">
+                    <p class="dag"></p>
+                    <p class="energie"></p>
+                </article>
+            </article>
+        </article>
+        <article class="control">
+            <article class="container">
+                    <div class="control">
+                        <div id="brightness-slider" class="control-slider"></div>
+                    </div>
+                    <img class="helderheid" src="images/f6.png">
+                </article>
+                <h2 class="tot1">Schema</h2>
+                <h3 class="tot">Van 12:00      Tot 18:00</h3>
+            </article>
+
+            <div class="control-light">
+            <h3 class="control-text">Geef uw lamp een nieuwe look!</h3>
+            <p class="control-text2">Pas de kleur aan van uw lamp</p>
+            <div class="control">
+                <p class="control-title">Verander licht kleur</p>
+                <input type="color" id="color-picker" value="#7f7f7f" class="control-color-picker">
+                <button id="change-color" value="woonkamer/schemerlamp" class="control-button">Change Color</button>
+            </div>
+
+            </div>
+            <script>
+                
+                $("#brightness-slider").roundSlider({
+        radius: 150,
+        circleShape: "half-right",
+        sliderType: "min-range",
+        value: 0,
+        drag: function (args) {
+            const brightness = args.value;
+            const button_topic = document.querySelector('#brightness-slider');
+            const topic = 'woonkamer/schemerlamp'; // button_topic.value;
+            
+            
+            console.log(topic)
+            const payload = {
+                'topic': topic,
+                'feature': { 'brightness': brightness }
+            };
+    
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            };
+
+            console.log(options);
+    
+            fetch('http://192.168.0.100:8000/api/set', options);
+        }
+    });
+    
+            </script>
+        </div>
+    </div>
+    </section>
+    <!-- scroll animatie maken -->
+   
+
+    <script>
+        document.querySelector('#change-color').onclick = (e) => {
+    const colorPicker = document.querySelector('#color-picker').value;
+    const hexColor = colorPicker.substring(1); // Remove '#'
+
+    // Convert HEX to RGB
+    const r = parseInt(hexColor.substring(0, 2), 16);
+    const g = parseInt(hexColor.substring(2, 4), 16);
+    const b = parseInt(hexColor.substring(4, 6), 16);
+    const button_topic = document.querySelector('#change-color');
+    const topic = button_topic.value;
+
+    const payload = {
+        'topic': topic,
+        'feature': { 'color': { 'r': r, 'g': g, 'b': b } }
+    };
+
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    };
+
+    fetch('http://192.168.0.100:8000/api/set', options);
+
+    // Update color display
+    const colorDisplay = document.querySelector('#color-display');
+    colorDisplay.style.backgroundColor = colorPicker;
+};
+       document.querySelector('#turn-on').onclick = (e) => {
+    changeState('on');
+    e.target.classList.add('button-active');
+    document.querySelector('#turn-off').classList.remove('button-active');
+};
+
+document.querySelector('#turn-off').onclick = (e) => {
+    changeState('off');
+    e.target.classList.add('button-active');
+    document.querySelector('#turn-on').classList.remove('button-active');
+};
+
+
+
+document.querySelector('#brightness-slider').oninput = (e) => {
+    const brightness = e.target.value;
+    const brightnessValue = document.querySelector('#brightness-value');
+    brightnessValue.textContent = brightness;
+};
+
+document.querySelector('#change-brightness').onclick = (e) => {
+    const brightness = document.querySelector('#brightness-slider').value;
+    const button_topic = document.querySelector('#change-brightness');
+    const topic = button_topic.value;
+
+    const payload = {
+        'topic': topic,
+        'feature': { 'brightness': brightness }
+    };
+
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    };
+
+    fetch('http://192.168.0.100:8000/api/set', options);
+};
+
+function changeState(state) {
+    const button_topic = document.querySelector('#turn-on');  // We can use either button, as they have the same value
+    const topic = button_topic.value;
+
+    const payload = {
+        'topic': topic,
+        'feature': { 'state': state }
+    };
+
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    };
+
+    fetch('http://192.168.0.100:8000/api/set', options);
+}
+
+
+</script>
+</body>
+
+</html>
