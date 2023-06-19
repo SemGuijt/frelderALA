@@ -75,12 +75,12 @@ function setupEventSource() {
         } else {
             // received device update, handle with care
             // just loggin here
-            console.log('msgTopic = ' + msgTopic)
+            console.log(msgTopic + ': ' + JSON.stringify(msgPayload) + '\n');
         }
         // add the data to the html-console so you can see what happens
         // let textarea = document.querySelector('#message-history')
         // textarea.value += (
-        //     msgTopic + ': ' + JSON.stringify(msgPayload) + '\n');
+
         // textarea.scrollTop = 99999;
     };
 
