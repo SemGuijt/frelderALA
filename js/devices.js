@@ -55,9 +55,11 @@ function addLightSwitch(device, clone, container, template) {
 function createLightswitch(clone, friendlyName) {
   const aanButton = clone.querySelector('#turn-on');
   const uitButton = clone.querySelector('#turn-off');
-  const Button =
+  const Button = clone.querySelector('#doorsturen');
 
-  
+  Button.onclick = (e) => {
+    navigateToDevicePage(deviceId, friendlyName); // Voeg friendlyName toe als argument bij het aanroepen van navigateToDevicePage
+  };
   
   aanButton.onclick = (e) => {
     console.log('Setting onclick event handler for Aan button');
@@ -67,6 +69,7 @@ function createLightswitch(clone, friendlyName) {
 uitButton.onclick = (e) => {
     console.log('Setting onclick event handler for Uit button');
     sendCommand(friendlyName, 'off');
+
 };
 }
 
@@ -74,19 +77,23 @@ function sendCommand(friendlyName, state) {
   console.log(`Button clicked! FriendlyName: ${friendlyName}, State: ${state}`);
 }
 
-function createLightswitch(clone, friendlyName, deviceId) {
-  const button = clone.querySelector('.toggle .control-button');
-  button.innerText = 'Aan';
-
-  button.onclick = (e) => {
-    navigateToDevicePage(deviceId, friendlyName);
-  };
-}
 
 function navigateToDevicePage(deviceId, friendlyName) {
   const devicePageUrl = `lamp.html?id=${deviceId}&name=${encodeURIComponent(friendlyName)}`;
   window.location.href = devicePageUrl;
 }
+
+document.querySelector('#turn-on').onclick = (e) => {
+  changeState('on');
+  e.target.classList.add('button-active');
+  document.querySelector('#turn-off').classList.remove('button-active');
+};
+
+document.querySelector('#turn-off').onclick = (e) => {
+  changeState('off');
+  e.target.classList.add('button-active');
+  document.querySelector('#turn-on').classList.remove('button-active');
+};
 
 
 

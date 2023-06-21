@@ -112,7 +112,7 @@ cursor: pointer;
   
 }
 
-.card1 > :nth-child(2) {
+.card1 > :nth-child(3) {
   align-self: flex-end;
   margin-bottom: 4px;
 }
@@ -141,15 +141,14 @@ cursor: pointer;
   height: fit-content;
 }
 
-.control-button:active {
-  background-color: #ddd;
-}
+
 
 .button-active {
   background-color: #606C38;
   color: #ddd;
   border-radius: 4px 4px 4px 4px;
 }
+
 .toggle {
  display: flex;
  justify-content: center;
