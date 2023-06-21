@@ -43,3 +43,25 @@ font-weight: 400;
     justify-content: center;
 }
 
+.bar {
+    width: 11px;
+    height: 10px;
+    background: #CCCCCC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.bar.active {
+    background: #283618;
+    width: 28px;
+    height: 10px;
+}
+.container {
+    padding: 5%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
