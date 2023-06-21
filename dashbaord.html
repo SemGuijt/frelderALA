@@ -121,36 +121,35 @@
 
      -->
   
-     <div class=" w-full flex flex-wrap justify-center gap-y-5">
-      <div class=" smart-card h-64 w-1/2 grid justify-items-center">
-        <div class="rounded-lg card1 h-64 w-4/5 bg-card1">
-          <h3 class=" mt-1 ml-1 devices-name"></h3>
-        </div>
-      </div>
-      <div class="h-64 w-1/2 grid justify-items-center">
-        <div class="rounded-lg card1 h-64 w-4/5 bg-card1">
-          <p>fsdfsdf</p>
-        </div>
-      </div>
-      <div class="h-64 w-1/2 grid justify-items-center">
-        <div class="rounded-lg card1 h-64 w-4/5 bg-card1">
-          <p>fsdfsdf</p>
-        </div>
-      </div>
-      <div class="h-64 w-1/2 grid justify-items-center">
-        <div class="rounded-lg card1 h-64 w-4/5 bg-card1">
-          <p>fsdfsdf</p>
-        </div>
-      </div>
-      
-    </div>
+     <div class="container w-full flex flex-wrap justify-center gap-y-5">
+
+
+      <!-- templates -->
+     <template class="smart-card">
+       <div class=" h-64 w-1/2 grid justify-items-center ">
+         <div class="bg-card1 rounded-lg card1 h-64 w-4/5 flex">
+           <p class="devices-name text"></p>
+         </div>
+       </div>
+     </template>
+ 
+     <template class="switch-template">
+         <div class="switch">
+             <button id="toggle" class="toggle">oonkamer/schemerlamp</button>
+         </div>
+     </template>
+ 
+     
+       
+     </div>
   </section>
     
     
     
     
     
-
+  <script src="./js/devices.js"></script>
+  <script src="./js/evenstream.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
       integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"

@@ -132,6 +132,7 @@ cursor: pointer;
 }
 
 .text {
-  max-width: 164px;
+  width: 155px;
   word-wrap: break-word;
+  display: inline-block;
 }
