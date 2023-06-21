@@ -130,3 +130,8 @@ cursor: pointer;
   background-position: 8vw 20vh;
   background-size: 15vh;
 }
+
+.text {
+  max-width: 164px;
+  word-wrap: break-word;
+}

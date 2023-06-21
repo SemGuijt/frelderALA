@@ -28,7 +28,7 @@ function showDevices(data) {
 
 function addName(clone, friendlyName) {
     const devicesName = clone.querySelector('.devices-name');
-    devicesName.textContent = friendlyName;
+    devicesName.innerText = friendlyName;
 }
 
 function addLightSwitch(device, clone, container, template) {
