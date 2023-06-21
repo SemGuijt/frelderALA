@@ -108,31 +108,50 @@ cursor: pointer;
   background-repeat: no-repeat;
   background-position: 10vw 0;
   background-size: 15vh;
+  display: grid;
+  
 }
 
-.card2 {
-  background-image: url('/images/Mask\ Group\ 2.png');
-  background-repeat: no-repeat;
-  background-position: -1vw 5vh;
-  background-size: 15vh;
+.card1 > :nth-child(2) {
+  align-self: flex-end;
+  margin-bottom: 4px;
 }
 
-.card3 {
-  background-image: url('/images/Group\ 3.png');
-  background-repeat: no-repeat;
-  background-position: 6vw 2vh;
-  background-size: 15vh;
-}
 
-.card4 {
-  background-image: url('/images/Mask\ Group\ 4.png');
-  background-repeat: no-repeat;
-  background-position: 8vw 20vh;
-  background-size: 15vh;
-}
 
 .text {
   width: 155px;
+  height: min-content;
   word-wrap: break-word;
   display: inline-block;
+}
+
+
+.control-button {
+  background-color: #eee;
+  border: none;
+  color: #606C38;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  height: fit-content;
+}
+
+.control-button:active {
+  background-color: #ddd;
+}
+
+.button-active {
+  background-color: #606C38;
+  color: #ddd;
+  border-radius: 4px 4px 4px 4px;
+}
+.toggle {
+ display: flex;
+ justify-content: center;
+
 }

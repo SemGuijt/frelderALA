@@ -122,26 +122,20 @@
      -->
   
      <div class="container w-full flex flex-wrap justify-center gap-y-5">
-
-
-      <!-- templates -->
-     <template class="smart-card">
-       <div class=" h-64 w-1/2 grid justify-items-center ">
-         <div class="bg-card1 rounded-lg card1 h-64 w-4/5 flex">
-           <p class="devices-name text"></p>
-         </div>
-       </div>
-     </template>
- 
-     <template class="switch-template">
-         <div class="switch">
-             <button id="toggle" class="toggle">oonkamer/schemerlamp</button>
-         </div>
-     </template>
- 
-     
-       
-     </div>
+      <template class="smart-card">
+        <div class=" h-64 w-1/2 grid justify-items-center">
+          <div class="card1 bg-card1 rounded-lg h-64 w-4/5">
+            <p class="devices-name text"></p>
+            <div class="toggle">
+              <button id="turn-on" class="control-button">Aan</button>
+              <h1 padding="yes">/</h1>
+              <button id="turn-off" class="control-button">Uit</button>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+    
   </section>
     
     
