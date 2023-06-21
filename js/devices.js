@@ -7,22 +7,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 
+let deviceId = 1; // Plaats deviceId hier buiten de showDevices-functie
+
 function showDevices(data) {
   const container = document.querySelector('.container');
   const template = document.querySelector('.smart-card');
-  let deviceCount = 0; // Add counter
 
   for (const device of data) {
-      const friendlyName = device.friendly_name;
-      if (friendlyName === 'Coordinator') continue;
+    const friendlyName = device.friendly_name;
+    if (friendlyName === 'Coordinator') continue;
 
-      const clone = template.content.cloneNode(true);
-      addName(clone, friendlyName);
-      addLightSwitch(device, clone, container, template);
-      container.appendChild(clone);
+    const clone = template.content.cloneNode(true);
+    addName(clone, friendlyName);
+    addLightSwitch(device, clone, container, template);
+    
+    // Wijs een unieke ID toe aan elk gekloond apparaat
+    clone.querySelector('.card1').setAttribute('id', `device-${deviceId}`);
+    deviceId++; // Verhoog het ID voor het volgende apparaat
 
-      deviceCount++; // Increment counter
-      console.log(`Device ${deviceCount}: ${friendlyName}`);
+    container.appendChild(clone);
   }
 }
 
@@ -52,6 +55,9 @@ function addLightSwitch(device, clone, container, template) {
 function createLightswitch(clone, friendlyName) {
   const aanButton = clone.querySelector('#turn-on');
   const uitButton = clone.querySelector('#turn-off');
+  const Button =
+
+  
   
   aanButton.onclick = (e) => {
     console.log('Setting onclick event handler for Aan button');
@@ -67,6 +73,22 @@ uitButton.onclick = (e) => {
 function sendCommand(friendlyName, state) {
   console.log(`Button clicked! FriendlyName: ${friendlyName}, State: ${state}`);
 }
+
+function createLightswitch(clone, friendlyName, deviceId) {
+  const button = clone.querySelector('.toggle .control-button');
+  button.innerText = 'Aan';
+
+  button.onclick = (e) => {
+    navigateToDevicePage(deviceId, friendlyName);
+  };
+}
+
+function navigateToDevicePage(deviceId, friendlyName) {
+  const devicePageUrl = `lamp.html?id=${deviceId}&name=${encodeURIComponent(friendlyName)}`;
+  window.location.href = devicePageUrl;
+}
+
+
 
 
 // function sendCommand(friendlyName, state) {
